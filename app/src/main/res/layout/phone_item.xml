@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="10dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="10dp"
+    android:background="#030447"
+    app:cardMaxElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1107EF"
+
+        android:padding="10dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/phoneImg"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@color/white"
+            app:civ_border_color="#03A9F4"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <TextView
+            android:id="@+id/phoneName"
+            android:layout_width="256dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:text=" BlackBerry Bold 9900 "
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/phoneImg"
+            app:layout_constraintTop_toTopOf="@+id/phoneImg" />
+
+
+        <TextView
+            android:id="@+id/phoneQnt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Quantity:3 units"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/phonePrice"
+            app:layout_constraintEnd_toEndOf="@+id/phoneName"
+            app:layout_constraintStart_toStartOf="@+id/phoneName"
+            app:layout_constraintTop_toBottomOf="@+id/phoneName"/>
+
+
+        <TextView
+            android:id="@+id/phonePrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="6.7"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/phoneImg"
+            app:layout_constraintEnd_toEndOf="@+id/phoneQnt"
+            app:layout_constraintStart_toStartOf="@+id/phoneQnt" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
