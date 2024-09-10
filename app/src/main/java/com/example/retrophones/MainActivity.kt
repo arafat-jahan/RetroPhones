@@ -30,17 +30,21 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        phone.add(Phone("BlackBerry Bold", 3 , 6.9, R.drawable.blackberrybold, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("Nokia", 2, 4.0, R.drawable.nokiat, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("Motorola Razr", 4, 4.0, R.drawable.razr, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("Sony Ericsson  ", 8, 4.0, R.drawable.sonycss, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("Samsung Galaxy", 10, 4.0, R.drawable.samsanggalaxy, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone(" iPhone ", 20, 5.0, R.drawable.iphones, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("HTC Desire HD", 20, 4.0, R.drawable.htcd, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("Nokia N95 ", 9, 4.0, R.drawable.nokian, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("LG Optimus ", 9, 4.0, R.drawable.lgo, "An iconic mobile device that set the standard in its era for design and functionality"))
-        phone.add(Phone("Sony Ericsson Xperia X10 ", 10, 4.0, R.drawable.sonyp, "An iconic mobile device that set the standard in its era for design and functionality"))
-
+        phone.add(Phone("BlackBerry Bold", 3 , 20.9, R.drawable.blackberrybold, "A landmark device that redefined smartphone design with its sleek look and efficient keyboard, setting benchmarks in its time."))
+        phone.add(Phone("Nokia", 2, 40.0, R.drawable.nokiat, "Known for its robust build and reliable performance, this phone was a staple in mobile communication during its peak"))
+        phone.add(Phone("Motorola Razr", 40, 14.0, R.drawable.razr, "Famous for its iconic flip design, the Razr was a trendsetter in the world of clamshell phones with its stylish and compact form."))
+        phone.add(Phone("Sony Ericsson  ", 18, 40.0, R.drawable.sonycss, "A blend of elegance and functionality, this model offered a high-quality multimedia experience with a focus on design"))
+        phone.add(Phone("Samsung Galaxy", 10, 24.0, R.drawable.samsanggalaxy, "A game-changer in the smartphone market, offering a stunning display and advanced features that set new standards for mobile technology."))
+        phone.add(Phone(" iPhone ", 20, 5.0, R.drawable.iphones, "Apple's revolutionary device that transformed the smartphone industry with its intuitive interface and powerful performance."))
+        phone.add(Phone("HTC Desire HD", 20, 34.0, R.drawable.htcd, "Known for its large, vivid display and solid performance, this smartphone offered a premium experience at its time."))
+        phone.add(Phone("Nokia N95 ", 9, 44.0, R.drawable.nokian, "An iconic mobile device that set the standard in its era for design and functionality"))
+        phone.add(Phone("LG Optimus ", 9, 54.0, R.drawable.lgo, "An innovative phone featuring advanced multimedia capabilities and a versatile design that catered to both work and play"))
+        phone.add(Phone("Sony Ericsson Xperia X10 ", 40, 4.0, R.drawable.sonyp, "A well-rounded smartphone with a focus on user-friendly features and reliable performance, making it a popular choice for many."))
+        phone.add(Phone("Motorola Droid", 7, 55.0, R.drawable.motoroladroid, "A high-end phone that delivered a top-notch user experience with its impressive screen and advanced features"))
+        phone.add(Phone("HTC One", 15, 14.7, R.drawable.htcd, "A pioneering Android phone that combined a full QWERTY keyboard with a large touchscreen, making it a favorite for productivity."))
+        phone.add(Phone("Nokia Lumia 920", 12, 24.5, R.drawable.sonycss, "Renowned for its premium build quality and stunning display, the HTC One offered a high-end smartphone experience."))
+        phone.add(Phone("BlackBerry Curve", 5, 33.2, R.drawable.bbc, "A beloved model known for its practical physical keyboard and business-friendly features, making it a favorite among professionals"))
+        phone.add(Phone("Samsung Note", 18, 15.3, R.drawable.samsunggalaxynote, "A groundbreaking phablet that bridged the gap between smartphones and tablets, offering a large screen and versatile functionality."))
 
 
 
@@ -66,7 +70,32 @@ class MainActivity : AppCompatActivity() {
             showPhoneAddDialog()
 
     }
-}
+
+
+        val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                phone.removeAt(viewHolder.adapterPosition)
+                phoneAdapter.notifyItemRemoved(viewHolder.adapterPosition)
+            }
+        })
+
+        itemTouchHelper.attachToRecyclerView(binding.phoneRv)
+
+
+
+    }
+
 
 
 

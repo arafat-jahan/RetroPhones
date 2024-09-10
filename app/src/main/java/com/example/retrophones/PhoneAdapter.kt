@@ -38,10 +38,15 @@ class PhoneAdapter(private val phoneList:ArrayList<Phone>): RecyclerView.Adapter
 
 
         }
+
         holder.itemView.setOnClickListener {
+            onClick?.invoke(phoneList[position])
+        }
+
+        holder.itemView.setOnLongClickListener {
             AlertDialog.Builder(holder.itemView.context)
-                .setTitle("Delete Phone Item")
-                .setMessage("Want to delete this item?")
+                .setTitle("Delete Fruit Item")
+                .setMessage("Are you sure you want to delete this item?")
                 .setPositiveButton("Yes") { _, _ ->
                     phoneList.removeAt(position)
                     notifyItemRemoved(position)
@@ -49,8 +54,11 @@ class PhoneAdapter(private val phoneList:ArrayList<Phone>): RecyclerView.Adapter
                 .setNegativeButton("No", null)
                 .show()
             true
-
-
         }
+
+
     }
+
+
 }
+

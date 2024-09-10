@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="#988D8D"
+    android:background="#6D0126"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
@@ -40,7 +40,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/blackberrybold"
+                    android:src="@drawable/iphones"
                     app:civ_border_color="#03A9F4"
                     app:civ_border_width="2dp" />
 
@@ -87,11 +87,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/phoneName" />
 
             <ScrollView
+                android:id="@+id/descTxt"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/descTxt"
+                android:background="@drawable/desc_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/phoneQnt"
@@ -100,13 +101,18 @@
                 <TextView
                     android:id="@+id/phoneDesc"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="Description will appear here."
+                    android:textAppearance="?attr/textAppearanceBody1"
                     android:justificationMode="inter_word"
-                    android:text="BlackBerry Bold 9900 "
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
+                    android:background="@color/white"
+                    android:elevation="4dp"
+                    android:layout_gravity="center" />
             </ScrollView>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
